@@ -1,0 +1,7 @@
+---
+title			: robots
+layout			: null
+permalink		: /robots.txt
+---
+
+User-agent: *

@@ -1,0 +1,154 @@
+############################################################
+# Site settings
+############################################################
+title                   : "Chris Mavrommatis"
+email                   : your-email@example.com
+description             : >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+  
+baseurl                 : "" # the subpath of your site, e.g. /blog
+url                     : "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username        : jekyllrb
+github_username         : jekyll
+
+
+############################################################
+# Where things are
+############################################################
+source              : .
+destination         : ../_site
+collections_dir     : collections
+plugins_dir         : _plugins       # takes an array of strings and loads plugins in that order
+layouts_dir         : _layouts
+includes_dir        : _includes
+data_dir            : _data
+sass:
+  sass_dir          : _sass
+  cache             : false
+  style             : compressed
+collections:
+  posts:
+    output          : true
+    permalink       : /post/:slug
+
+############################################################
+# Handling Reading
+############################################################
+safe                : false
+include             : 
+  - ".htaccess"
+exclude             : 
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+keep_files          : [".git", ".svn"]
+encoding            : "utf-8"
+markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
+strict_front_matter : false
+
+############################################################
+# Filtering Content
+############################################################
+show_drafts         : false
+limit_posts         : 0
+future              : false
+unpublished         : false
+
+############################################################
+# Serving
+############################################################
+detach              : false
+port                : 4002
+host                : 127.0.0.1
+baseurl             : ""    # does not include hostname
+show_dir_listing    : false
+disable_disk_cache  : true
+
+############################################################
+# Conversion
+############################################################
+markdown            : kramdown
+highlighter         : rouge
+lsi                 : false
+excerpt_separator   : "\n\n"
+incremental         : false
+
+############################################################
+# Outputting
+############################################################
+permalink           : date        #pretty
+paginate_path       : /page:num
+timezone            : "Europe/Athens"       
+quiet               : false
+verbose             : false
+defaults            : []
+liquid:
+  error_mode        : warn
+  strict_filters    : false
+  strict_variables  : false
+
+############################################################
+# Markdown Processors
+############################################################
+kramdown:
+  auto_ids          : false
+  entity_output     : as_char
+  toc_levels        : '1..6'
+  smart_quotes      : lsquo,rsquo,ldquo,rdquo
+  input             : GFM
+  hard_wrap         : false
+  footnote_nr       : 1
+  show_warnings     : false
+  parse_block_html  : true
+
+############################################################
+# Plugins
+############################################################
+gems                : []
+whitelist           : []
+plugins             : []
+
+############################################################
+# Front Matter Defaults
+############################################################
+defaults:
+  -
+    scope:
+      path           : ""  
+      type           : "pages"
+    values:
+      layout         : null
+      title          : null
+      nav_exclude    : true
+      search_exclude : true
+      sitemap        : null
+      isSitemap      : false
+  -    
+    scope:
+      path           : "pages/**"  
+      type           : "pages"
+    values:
+      layout         : "default"
+      title          : "NOTITLE"
+      sitemap:
+        lastmod		    : "current"
+        changefreq	    : "weekly"
+        priority		: 1.0
+      nav_exclude    : false
+      search_exclude : false
+  -
+    scope:
+      path           : "feeds/sitemaps/**"
+      type           : "pages"
+    values:
+      isSitemap      : true
+ 
+############################################################
+################### END OF BASE CONFIG #####################
+############################################################
