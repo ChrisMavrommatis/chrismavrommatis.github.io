@@ -31,7 +31,7 @@ sass:
 collections:
   posts:
     output          : true
-    permalink       : /post/:slug
+    permalink       : /blog/post/:slug
 
 ############################################################
 # Handling Reading
@@ -124,10 +124,8 @@ defaults:
       path           : ""  
       type           : "pages"
     values:
-      layout         : null
-      title          : null
-      nav_exclude    : true
-      search_exclude : true
+      layout         : "default"
+      title          : "NOTITLE"
       sitemap        : null
       isSitemap      : false
   -    
@@ -135,21 +133,36 @@ defaults:
       path           : "pages/**"  
       type           : "pages"
     values:
+      sitemap:
+        lastmod		 : "current"
+        changefreq	 : "weekly"
+        priority	 : 1.0
+  - 
+    scope:
+      type           : "posts"
+      path           : ""
+    values:
       layout         : "default"
       title          : "NOTITLE"
+      sitemap        : null
+  - 
+    scope:
+      path           : "collections/_posts"
+      type           : "posts"
+    values:
       sitemap:
-        lastmod		    : "current"
-        changefreq	    : "weekly"
-        priority		: 1.0
-      nav_exclude    : false
-      search_exclude : false
+        changefreq	 : "monthly"
+        priority	 : 1.0
+
+
   -
     scope:
       path           : "feeds/sitemaps/**"
       type           : "pages"
     values:
+      layout         : null
       isSitemap      : true
- 
+      
 ############################################################
 ################### END OF BASE CONFIG #####################
 ############################################################

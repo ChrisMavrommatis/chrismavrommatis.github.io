@@ -5,3 +5,8 @@ permalink		: /robots.txt
 ---
 
 User-agent: *
+
+{% assign sitemaps = site.pages | where:"isSitemap", true %}
+{% for sitemap in sitemaps %}
+Sitemap: {{ sitemap.url | absolute_url }}
+{% endfor %}
