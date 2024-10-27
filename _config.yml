@@ -17,8 +17,8 @@ github_username         : jekyll
 ############################################################
 # Where things are
 ############################################################
-source              : .
-destination         : ../_site
+source              : ./src
+destination         : _site
 collections_dir     : collections
 plugins_dir         : _plugins       # takes an array of strings and loads plugins in that order
 layouts_dir         : _layouts
