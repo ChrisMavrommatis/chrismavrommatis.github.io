@@ -1,0 +1,9 @@
+navigation_menu:
+  - title: Home
+    url: /
+    icon: home
+    order: 0
+  - title: Blog
+    url: /blog/
+    icon: newspaper
+    order: 1

@@ -1,0 +1,17 @@
+{% if site.data.menus.navigation_menu %}
+  {% assign menu_items = site.data.menus.navigation_menu | sort: "order" %}
+  {% for node in menu_items %}
+    {% if page.url == node.url %}
+
+      <a class="active" href="{{ node.url }}">
+        <i>{{ node.icon }}</i>
+        <span>{{ node.title }}</span>
+      </a>
+    {% else %}
+      <a href="{{ node.url }}">
+        <i>{{ node.icon }}</i>
+        <span>{{ node.title }}</span>
+      </a>
+    {% endif %}
+  {% endfor %}
+{% endif %}
