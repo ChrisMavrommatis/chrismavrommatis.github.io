@@ -7,11 +7,11 @@ layout: default
     <div class="padding">
 
       <article>
-        <img class="responsive large" src="https://picsum.photos/200">
+        <img class="responsive large" src="{{ site.data.profile.image }}">
         <div class="padding">
-          <h4>Chris Mavrommatis</h4>
-          <h5>Software Engineer</h5>
-          <p>Athens, Greece</p>
+          <h4>{{ site.data.profile.name }}</h4>
+          <h5>{{ site.data.profile.occupation }}</h5>
+          <p>{{ site.data.profile.location }}</p>
         </div>
       </article>
 
@@ -22,152 +22,25 @@ layout: default
   </div>
 
   <div class="grid padding">
+    {% for tech in site.data.profile.tech_stack %}
+      <div class="s12 m6 l3">
+        <article>
+          <div class="grid no-space center-align middle-align">
+            <div class="s4">
+              <img class="responsive" src="{{ tech.image }}">
+            </div>
+            <div class="s8">
 
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
+              <h6>{{ tech.name }}</h6>
+              {% if tech.description %}
+                <p>{{ tech.description }}</p>
+              {% endif %}
             </div>
           </div>
-        </div>
 
-      </article>
+        </article>
 
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="s12 m6 l3">
-      <article>
-        <div class="grid no-space">
-          <div class="s4">
-            <img class="responsive" src="https://picsum.photos/40">
-          </div>
-          <div class="s8">
-            <div class="padding">
-
-              <h5>React</h5>
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-    </div>
-
+      </div>
+    {% endfor %}
   </div>
-
-
 </div>

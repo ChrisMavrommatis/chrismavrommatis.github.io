@@ -1,0 +1,30 @@
+name: Chris Mavrommatis
+occupation: Software Engineer
+location: Athens, Greece
+image: https://picsum.photos/200
+
+tech_stack:
+  - name: .NET
+    image: /assets/dotNet_logo.svg
+    description: 'Lorem ipsum'
+  - name: Javascript
+    image: /assets/js_logo.png
+    description: 'Lorem ipsum'
+  - name: Docker
+    image: /assets/docker_logo_blue.svg
+    description: 'Lorem ipsum'
+  - name: Git
+    image: /assets/git_logo.png
+    description: 'Lorem ipsum'
+  - name: Kubernetes
+    image: /assets/kubernetes_logo.svg
+    description: 'Lorem ipsum'
+  - name: SQL
+    image: /assets/sql_logo.png
+    description: 'Lorem ipsum'
+  - name: Azure
+    image: /assets/azure_logo.png
+    description: 'Lorem ipsum'
+  - name: Html
+    image: /assets/html_logo.png
+    description: 'Lorem ipsum'
