@@ -3,71 +3,20 @@ layout: default
 ---
 <div class="padding">
   <div class="grid large-space">
-    <div class="s12 m12 l6">
-      <article class="no-padding round medium">
-        <img class="responsive small top-round" src="https://picsum.photos/400/150">
-        <div class="padding">
-          <h5>Title</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <nav>
-            <button>Button</button>
-          </nav>
-        </div>
-      </article>
-    </div>
-
-    <div class="s12 m12 l6">
-      <article class="no-padding round medium">
-        <img class="responsive small top-round" src="https://picsum.photos/400/150">
-        <div class="padding">
-          <h5>Title</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <nav>
-            <button>Button</button>
-          </nav>
-        </div>
-      </article>
-    </div>
-
-    <div class="s12 m12 l6">
-      <article class="no-padding round medium">
-        <img class="responsive small top-round" src="https://picsum.photos/400/150">
-        <div class="padding">
-          <h5>Title</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <nav>
-            <button>Button</button>
-          </nav>
-        </div>
-      </article>
-    </div>
-
-    <div class="s12 m12 l6">
-      <article class="no-padding round medium">
-        <img class="responsive small top-round" src="https://picsum.photos/400/150">
-        <div class="padding">
-          <h5>Title</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <nav>
-            <button>Button</button>
-          </nav>
-        </div>
-      </article>
-    </div>
-
-    <div class="s12 m12 l6">
-      <article class="no-padding round medium">
-        <img class="responsive small top-round" src="https://picsum.photos/400/150">
-        <div class="padding">
-          <h5>Title</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <nav>
-            <button>Button</button>
-          </nav>
-        </div>
-      </article>
-    </div>
+    {% for post in paginator.posts %}
+      <div class="s12 m12 l6">
+        <article class="no-padding round medium">
+          <img class="responsive small top-round" src="https://picsum.photos/400/150">
+          <div class="padding">
+            <h5>{{ post.title }}</h5>
+            <p>{{ post.excerpt | format_excerpt: 400 }}</p>
+          </div>
+        </article>
+      </div>
+    {% endfor %}
   </div>
-
+  {% if paginator.total_pages > 1 %}
+    {% include pager.html %}
+  {% endif %}
 
 </div>

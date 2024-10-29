@@ -1,0 +1,36 @@
+<div class="responsive padding center-align middle-align">
+
+  <nav>
+    {% if paginator.previous_page %}
+      <a class="button circle small border" href="{{ paginator.previous_page_path | replace: 'index.html', '' }}">
+        <i>chevron_left</i>
+      </a>
+    {% else %}
+      <a class="button circle small fill" disabled>
+        <i>chevron_left</i>
+      </a>
+    {% endif %}
+    {% for trail in paginator.page_trail %}
+      {% if trail.num == paginator.page %}
+        <a class="button circle small">
+          {{ trail.num }}
+        </a>
+      {% else %}
+        <a class="button circle small border" href="{{ trail.path | replace: 'index.html', ''}}">
+          {{ trail.num }}
+        </a>
+      {% endif %}
+
+    {% endfor %}
+    {% if paginator.next_page %}
+      <a class="button circle small border" href="{{ paginator.next_page_path | replace: 'index.html', '' }}">
+        <i>chevron_right</i>
+      </a>
+    {% else %}
+      <a class="button circle small fill" disabled>
+        <i>chevron_right</i>
+      </a>
+    {% endif %}
+  </nav>
+
+</div>
