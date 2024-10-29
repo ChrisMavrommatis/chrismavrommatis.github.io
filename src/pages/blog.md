@@ -1,6 +1,7 @@
 ---
 title     : Blog
 permalink : /blog/
+menu_ref  : /blog/
 layout    : bloglist
 pagination: 
   enabled		: true

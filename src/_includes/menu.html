@@ -1,7 +1,13 @@
+{% if page.menu_ref %}
+  {% assign page_ref = page.menu_ref %}
+{% else %}
+  {% assign page_ref = page.url %}
+{% endif %}
+
 {% if site.data.menus.navigation_menu %}
   {% assign menu_items = site.data.menus.navigation_menu | sort: "order" %}
   {% for node in menu_items %}
-    {% if page.url == node.url %}
+    {% if page_ref == node.url %}
 
       <a class="active" href="{{ node.url }}">
         <i>{{ node.icon }}</i>
