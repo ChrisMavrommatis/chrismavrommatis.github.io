@@ -5,13 +5,18 @@ layout: default
   <div class="grid large-space">
     {% for post in paginator.posts %}
       <div class="s12 m12 l6">
-        <article class="no-padding round medium">
-          <img class="responsive small top-round" src="https://picsum.photos/400/150">
+        <article class="no-padding medium">
+          {% include image.html url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
           <div class="padding">
             <h5>{{ post.title }}</h5>
-            <p>{{ post.excerpt | format_excerpt: 400 }}</p>
+            <p>{{ post.excerpt | format_excerpt: 150 }}</p>
+            <nav>
+              <a class="button" href="{{ post.url }}">Read More</a>
+            </nav>
           </div>
+
         </article>
+
       </div>
     {% endfor %}
   </div>
