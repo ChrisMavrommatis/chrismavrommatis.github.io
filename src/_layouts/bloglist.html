@@ -1,27 +1,43 @@
 ---
 layout: default
 ---
-<div class="padding">
-  <div class="grid large-space">
-    {% for post in paginator.posts %}
-      <div class="s12 m12 l6">
-        <article class="no-padding medium">
-          {% image url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
-          <div class="padding">
-            <h5>{{ post.title }}</h5>
-            <p>{{ post.excerpt | markdownify | format_excerpt: 150 }}</p>
-            <nav>
-              <a class="button" href="{{ post.url }}">Read More</a>
-            </nav>
-          </div>
 
-        </article>
+{% if paginator.posts.length > 0 %}
+  <div class="padding">
+    <div class="grid large-space">
 
-      </div>
-    {% endfor %}
+      {% for post in paginator.posts %}
+
+        <div class="s12 m12 l6">
+          <article class="no-padding medium">
+            {% image url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
+            <div class="padding">
+              <h5>{{ post.title }}</h5>
+              <p>{{ post.excerpt | markdownify | format_excerpt: 150 }}</p>
+              <nav>
+                <a class="button" href="{{ post.url }}">Read More</a>
+              </nav>
+            </div>
+          </article>
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    {% if paginator.total_pages > 1 %}
+      {% include pager.html %}
+    {% endif %}
+
   </div>
-  {% if paginator.total_pages > 1 %}
-    {% include pager.html %}
-  {% endif %}
-
-</div>
+{% else %}
+  <div class="padding medium middle-align center-align">
+    <div>
+      <h2>:(</h2>
+      <h3>
+        Nothing Here
+      </h3>
+      <p>Come back a little later. Maybe there will be something.</p>
+    </div>
+  </div>
+{% endif %}
