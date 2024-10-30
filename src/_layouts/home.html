@@ -7,7 +7,7 @@ layout: default
     <div class="padding">
 
       <article>
-        <img class="responsive large" src="{{ site.data.profile.image }}">
+        {% image class="responsive large" url=site.data.profile.image alt=site.data.profile.name %}
         <div class="padding">
           <h4>{{ site.data.profile.name }}</h4>
           <h5>{{ site.data.profile.occupation }}</h5>
@@ -27,7 +27,7 @@ layout: default
         <article>
           <div class="grid no-space center-align middle-align">
             <div class="s4">
-              <img class="responsive" src="{{ tech.image }}">
+              {% image url=tech.image alt=tech.name class="responsive" %}
             </div>
             <div class="s8">
 

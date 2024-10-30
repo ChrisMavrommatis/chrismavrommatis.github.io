@@ -6,7 +6,7 @@ layout: default
     {% for post in paginator.posts %}
       <div class="s12 m12 l6">
         <article class="no-padding medium">
-          {% include image.html url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
+          {% image url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
           <div class="padding">
             <h5>{{ post.title }}</h5>
             <p>{{ post.excerpt | markdownify | format_excerpt: 150 }}</p>
