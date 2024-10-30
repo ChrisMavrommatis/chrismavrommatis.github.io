@@ -3,9 +3,8 @@
 ############################################################
 title                   : "Chris Mavrommatis"
 description             : >- 
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Hello my name is Chris and I am a Software Engineer in Greece.
+  Welcome to my personal site.
   
 url                     : "https://chrismavrommatis.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -116,52 +115,34 @@ plugins             :
 # Front Matter Defaults
 ############################################################
 defaults:
-  -
-    scope:
-      path           : ""  
-      type           : "pages"
-    values:
-      layout         : "default"
-      title          : "NOTITLE"
-      sitemap        : null
-      isSitemap      : false
-  -    
+  - 
     scope:
       path           : "pages/**"  
       type           : "pages"
     values:
-      sitemap:
+     layout          : "default"
+     title           : "NOTITLE"
+     locale          : "en_US"
+     hreflang        : "en"
+     sitemap:
         lastmod		 : "current"
         changefreq	 : "weekly"
         priority	 : 1.0
-  - 
-    scope:
-      type           : "posts"
-      path           : ""
-    values:
-      layout         : "default"
-      title          : "NOTITLE"
-      sitemap        : null
-      main_img       : "https://picsum.photos/400/150"
 
   - 
     scope:
       path           : "collections/_posts"
       type           : "posts"
     values:
+      layout         : "default"
+      title          : "NOTITLE"
+      locale         : "en_US"
+      hreflang       : "en"
+      main_img       : "https://picsum.photos/400/150"
       sitemap:
         changefreq	 : "monthly"
         priority	 : 1.0
 
-
-  -
-    scope:
-      path           : "feeds/sitemaps/**"
-      type           : "pages"
-    values:
-      layout         : null
-      isSitemap      : true
-      
 ############################################################
 ################### END OF BASE CONFIG #####################
 ############################################################

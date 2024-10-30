@@ -1,10 +1,12 @@
 ---
+layout         : null
+isSitemap      : true
 ---
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	{% for pg in site.pages %}
-	{% if pg.sitemap != null and pg.sitemap != empty and pg.isSitemap != true %}
+	{% if pg.sitemap != nil and pg.isSitemap != true %}
 	<url>
 		<loc>{{ pg.url | remove: "index.html" | absolute_url }}</loc>
 		{% assign page_last_mod = pg.sitemap.lastmod %}
