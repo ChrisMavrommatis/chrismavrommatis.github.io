@@ -9,7 +9,7 @@ layout: default
           {% include image.html url=post.main_img alt=post.title class="responsive small" width=400 height=150 %}
           <div class="padding">
             <h5>{{ post.title }}</h5>
-            <p>{{ post.excerpt | format_excerpt: 150 }}</p>
+            <p>{{ post.excerpt | markdownify | format_excerpt: 150 }}</p>
             <nav>
               <a class="button" href="{{ post.url }}">Read More</a>
             </nav>

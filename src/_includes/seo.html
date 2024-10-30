@@ -7,3 +7,19 @@
 <title>
   {{ page_title }}
 </title>
+
+{% assign pagecontent_description = page.content | markdownify | format_meta_description: 160 %}
+{% if pagecontent_description.size > 10 %}
+  {% assign meta_description = pagecontent_description %}
+{% else %}
+  {% assign meta_description = site.description | markdownify | format_meta_description: 160 %}
+{% endif %}
+<meta name="description" content="{{ meta_description }}">
+
+
+<link rel="canonical" href="{{ page.url | remove: "index.html" | absolute_url }}">
+
+{% assign icon = "/assets/android-chrome-192x192.png" %}
+
+
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
