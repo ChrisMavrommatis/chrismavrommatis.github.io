@@ -8,11 +8,14 @@ layout: default
 
       <article>
         {% image class="responsive large" url=site.data.profile.image alt=site.data.profile.name %}
-        <div class="padding">
-          <h4>{{ site.data.profile.name }}</h4>
-          <h5>{{ site.data.profile.occupation }}</h5>
-          <p>{{ site.data.profile.location }}</p>
-        </div>
+        {% if site.data.profile.enabled %}
+          <div class="padding">
+            <h4>{{ site.data.profile.name }}</h4>
+            <h5>{{ site.data.profile.occupation }}</h5>
+            <p>{{ site.data.profile.location }}</p>
+          </div>
+        {% endif %}
+
       </article>
 
 
@@ -22,25 +25,27 @@ layout: default
   </div>
 
   <div class="grid padding">
-    {% for tech in site.data.profile.tech_stack %}
-      <div class="s12 m6 l3">
-        <article>
-          <div class="grid no-space center-align middle-align">
-            <div class="s4">
-              {% image url=tech.image alt=tech.name class="" height=50 %}
+    {% if site.data.profile.enabled %}
+      {% for tech in site.data.profile.tech_stack %}
+        <div class="s12 m6 l3">
+          <article>
+            <div class="grid no-space center-align middle-align">
+              <div class="s4">
+                {% image url=tech.image alt=tech.name class="" height=50 %}
+              </div>
+              <div class="s8">
+
+                <h6>{{ tech.name }}</h6>
+                {% if tech.description %}
+                  <p>{{ tech.description }}</p>
+                {% endif %}
+              </div>
             </div>
-            <div class="s8">
 
-              <h6>{{ tech.name }}</h6>
-              {% if tech.description %}
-                <p>{{ tech.description }}</p>
-              {% endif %}
-            </div>
-          </div>
+          </article>
 
-        </article>
-
-      </div>
-    {% endfor %}
+        </div>
+      {% endfor %}
+    {% endif %}
   </div>
 </div>
