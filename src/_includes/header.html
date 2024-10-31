@@ -1,10 +1,29 @@
+{% assign page_ref = page.url %}
+{% if page.menu_ref %}
+  {% assign page_ref = page.menu_ref %}
+{% endif %}
+
+{% assign header_title = "" %}
+{% if site.data.menus.navigation_menu %}
+  {% assign menu_items = site.data.menus.navigation_menu | sort: "order" %}
+  {% for node in menu_items %}
+    {% if page_ref == node.url or (page_ref != '/' and node.url != '/' and page_ref contains node.url) %}
+      {% assign header_title = node.title %}
+      {% if node.header != nil %}
+        {% assign header_title = node.header %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
 <header class="fixed responsive max background">
   <nav>
     <div class="s">
       {% include logo.html %}
     </div>
-    <h1 class="max center-align">
-      {{ page.title }}
-    </h1>
+    <h4 class="max center-align">
+      {{ header_title }}
+    </h4>
   </nav>
 </header>

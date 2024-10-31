@@ -1,5 +1,7 @@
 navigation_menu:
-  - title: Home
+  - title: Chris Mavrommatis
+    heading: ''
+    menu_title: Home
     url: /
     icon: home
     order: 0

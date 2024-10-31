@@ -131,17 +131,18 @@ defaults:
 
   - 
     scope:
-      path           : "collections/_posts"
-      type           : "posts"
+      path              : "collections/_posts"
+      type              : "posts"
     values:
-      layout         : "default"
-      title          : "NOTITLE"
-      locale         : "en_US"
-      hreflang       : "en"
-      main_img       : "https://picsum.photos/400/150"
+      layout            : "blog_detail"
+      title             : "NOTITLE"
+      locale            : "en_US"
+      hreflang          : "en"
+      main_img          : "https://picsum.photos/400/150"
+      excerpt_separator : <!--more-->
       sitemap:
-        changefreq	 : "monthly"
-        priority	 : 1.0
+        changefreq	    : "monthly"
+        priority	    : 1.0
 
 ############################################################
 ################### END OF BASE CONFIG #####################

@@ -1,21 +1,25 @@
+{% assign page_ref = page.url %}
 {% if page.menu_ref %}
   {% assign page_ref = page.menu_ref %}
-{% else %}
-  {% assign page_ref = page.url %}
 {% endif %}
 
 {% if site.data.menus.navigation_menu %}
   {% assign menu_items = site.data.menus.navigation_menu | sort: "order" %}
   {% for node in menu_items %}
+    {% assign node_title = node.title %}
+    {% if node.menu_title %}
+      {% assign node_title = node.menu_title %}
+    {% endif %}
+
     {% if page_ref == node.url or (page_ref != '/' and node.url != '/' and page_ref contains node.url) %}
       <a class="active" href="{{ node.url }}">
         <i>{{ node.icon }}</i>
-        <span>{{ node.title }}</span>
+        <span>{{ node_title }}</span>
       </a>
     {% else %}
       <a href="{{ node.url }}">
         <i>{{ node.icon }}</i>
-        <span>{{ node.title }}</span>
+        <span>{{ node_title }}</span>
       </a>
     {% endif %}
   {% endfor %}
