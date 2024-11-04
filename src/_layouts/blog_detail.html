@@ -5,6 +5,9 @@ layout: default
   <h1 class="{{ page.title_class }}">
     {{ page.title }}
   </h1>
+  {% if page.draft %}
+    <button class="chip">Draft</button>
+  {% endif %}
 {% else %}
   <h1>
     {{ page.title }}

@@ -2,7 +2,7 @@
 title:  "How I reduced memory usage by 70% in Binacle.Net"
 layout: "blog_detail"
 title_class: "small"
-main_imgsmall: "https://picsum.photos/400/150"
+main_img: "https://picsum.photos/400/150"
 tags: 
   - .Net 
   - Memory Management
