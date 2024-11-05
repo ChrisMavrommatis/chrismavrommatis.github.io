@@ -4,10 +4,6 @@ module Jekyll
       input = input.to_s
 
       transformed = input
-      .gsub('.', '. ')
-      .gsub('</h2>', ': ')
-      .gsub('</h3>', ': ')
-      .gsub('</h4>', ': ')
       .gsub(/<\/?[^>]*>/, '') # Remove HTML tags
       .gsub(/\n+/, ' ') # Remove new lines
       .gsub(/ {2,}/, ' ') # Replace multiple spaces with a single space
