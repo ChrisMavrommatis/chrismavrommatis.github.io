@@ -1,0 +1,31 @@
+/* Container that enables horizontal scroll */
+.table-container {
+	width: 100%; /* Full-width container */
+	overflow-x: auto; /* Enables horizontal scrolling */
+	-webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+}
+
+/* Styles to make the table responsive */
+.responsive-table {
+	width: 100%; /* Ensures table fills the container */
+	min-width: 600px; /* Adjust based on your minimum content width */
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Optional: Styling for readability */
+.responsive-table th,
+.responsive-table td {
+	padding: 8px; /* Adjust for spacing */
+	text-align: left;
+	white-space: nowrap; /* Prevents wrapping in cells */
+}
+
+/* Optional: Slightly smaller font size on small screens */
+@media (max-width: 700px) {
+	.responsive-table th,
+	.responsive-table td {
+		font-size: 0.9em; /* Scale text down slightly */
+		padding: 6px; /* Adjust padding for mobile */
+	}
+}
