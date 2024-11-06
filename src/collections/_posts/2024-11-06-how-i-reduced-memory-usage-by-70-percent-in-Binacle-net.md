@@ -10,6 +10,7 @@ tags:
 
 
 In this article, I’ll take you through my journey of optimizing memory in **Binacle.Net**, an API built in **C#** and **.NET**.
+<!--more-->
 
 ## Introduction
 
