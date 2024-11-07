@@ -2,6 +2,7 @@
 title:  "How I reduced memory usage by 70% in Binacle.Net"
 title_class: "small"
 lastmod	: "2024-11-06 23:20:00"
+main_img: "/assets/posts/how-i-reduced-memory-usage-by-70-percent-in-Binacle-net/main.jpg"
 tags: 
   - .Net 
   - Memory Management
@@ -256,3 +257,5 @@ Sometimes you may have to consider changing your data structures or even the arc
 <br/>
 
 That's all I have for you, take care!
+
+Photo by [Bernd 📷 Dittrich](https://unsplash.com/@hdbernd?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash){:.link} on [Unsplash](https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-lines-on-it-d_3EKbSg1tg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash){:.link}
