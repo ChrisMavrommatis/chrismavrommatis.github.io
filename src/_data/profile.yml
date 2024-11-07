@@ -1,24 +1,23 @@
-enabled: false
-
 name: Chris Mavrommatis
 occupation: Software Engineer
 location: Athens, Greece
 image: https://picsum.photos/200
+logo: /assets/profile/cm_logo_hexgon_200x200.png
 
 tech_stack:
   - name: .NET
-    image: /assets/dotNet_logo.svg
+    image: /assets/tech/dotNet_logo.svg
   - name: Javascript
-    image: /assets/js_logo.png
+    image: /assets/tech/js_logo.png
   - name: Docker
-    image: /assets/docker_logo_blue.svg
+    image: /assets/tech/docker_logo_blue.svg
   - name: Git
-    image: /assets/git_logo.png
+    image: /assets/tech/git_logo.png
   - name: Kubernetes
-    image: /assets/kubernetes_logo.svg
+    image: /assets/tech/kubernetes_logo.svg
   - name: SQL
-    image: /assets/database_logo.png
+    image: /assets/tech/database_logo.png
   - name: Azure
-    image: /assets/azure_logo.png
+    image: /assets/tech/azure_logo.png
   - name: Html
-    image: /assets/html_logo.png
+    image: /assets/tech/html_logo.png
