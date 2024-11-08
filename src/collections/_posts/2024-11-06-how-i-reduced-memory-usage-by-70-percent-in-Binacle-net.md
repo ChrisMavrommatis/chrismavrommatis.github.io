@@ -1,7 +1,7 @@
 ---
 title:  "How I reduced memory usage by 70% in Binacle.Net"
 title_class: "small"
-lastmod	: "2024-11-06 23:20:00"
+lastmod	: "2024-11-08 09:05:00"
 main_img: "/assets/posts/how-i-reduced-memory-usage-by-70-percent-in-Binacle-net/main.jpg"
 tags: 
   - .Net 
@@ -220,37 +220,35 @@ By trading some more memory upfront I was able to make a dramatic improvement ov
 
 There are a few issues I have yet to deal with, and do require more work, but these were benefits I achieved with minimal core changes, albeit with a lot of testing and experimentation, and what you don't see are the failed attempts.
 
-## Key Takeaways
+## Lessons Learned
 
-I want you to take a few things with you before trying anything.
+I could have chosen not to optimize the algorithms and waited until Binacle.Net could potentially start getting serious use, but this is still a hobby project and there was a lot I learned from this and I hope some of it may have been of some use to you.
 
-**1. Don't try to optimize anything until you really need it.**
+Here's what I learned.
+
+**1. Don't do it.**
 <br/>
-In most scenarios you will rarely need to optimize anything. I could have probably left it at version 1 and started considering optimizing them when Binacle.Net started getting some use. That is mainly due to the fact that a lot can go wrong during optimization and it can eat up your time.
+In most scenarios you will rarely need to optimize anything, or at least wait until you really need it. Doing it early can eat up your time and a lot can go wrong during optimization.
 
-**2. Always have some tests to ensure your code produces the expected output.**
+**2. Tests, and some more tests**
 <br/>
-Otherwise you may find yourself in situations where you are getting fake optimization results and your code does not produce the correct output.
+Make sure you have proper tests in place to ensure your code produces the expected output. Doing so will allow you to refactor key parts, then run them to ensure nothing broke.
 
-**3. Ensure your benchmarks are accurate and valid.**
+**3. Aim for the low hanging fruit.**
 <br/>
-A lot can go wrong when making benchmarks. Make sure you are doing this correctly and allocate enough time to validate anything you do from multiple sources.
+Identify what can easily be changed first, LINQ can be a good candidate. The optimization game is one of effort and output. At first, you will most likely want to aim to achieve the most you can get, with as little effort possible.
 
-**4. Try to aim for the low hanging fruit.**
+**4. Interpret the results.**
 <br/>
-Identify what can easily be changed first, LINQ can be a good candidate. The optimization game is one of effort and output, at first you will most likely want to aim to achieve the most you can get with as little effort possible.
+Your benchmark results may have an underlying meaning. Try to analyze them as they may reveal something about your code.
 
-**5. Take a good look at the results.**
+**5. You will probably fail... a lot!**
 <br/>
-Your benchmark result may have an underlying meaning. Try to analyze them as they may reveal something about your code.
+Try to materialize those ideas, but don't be discouraged, some will fail and make the performance worse and that's good, because now you learned something.
 
-**6. You will probably fail... a lot!**
+**6. Data structures.**
 <br/>
-You will most likely try an idea only to find out it makes the performance worse, that's good now you learned something.
-
-**7. It's about data structures.**
-<br/>
-Sometimes you may have to consider changing your data structures or even the architecture.
+Sometimes you may have to consider changing your data structures to achieve better performance.
 
 ---
 
