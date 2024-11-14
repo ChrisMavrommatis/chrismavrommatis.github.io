@@ -9,3 +9,8 @@ navigation_menu:
     url: /blog/
     icon: newspaper
     order: 1
+
+aux_links:
+  - title: 'chrismavrommatis.github.io on Github'
+    url: 'https://github.com/ChrisMavrommatis/chrismavrommatis.github.io'
+    image: '/assets/profile/github-mark-white.svg'

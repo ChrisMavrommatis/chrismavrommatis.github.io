@@ -25,5 +25,26 @@
     <h4 class="max center-align">
       {{ header_title }}
     </h4>
+    {% if site.data.menus.aux_links.size > 0 %}
+      {% for link in site.data.menus.aux_links %}
+        {% if link.image %}
+          <a
+            class="button transparent circle"
+            href="{{ link.url }}"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img src="{{ link.image }}" alt="{{ link.title }}" />
+          </a>
+        {% else %}
+          <a
+            href="{{ link.url }}"
+            target="_blank"
+            rel="noopener noreferrer">
+            {{ link.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
   </nav>
 </header>

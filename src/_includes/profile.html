@@ -8,6 +8,20 @@
           <h4>{{ site.data.profile.name }}</h4>
           <h5>{{ site.data.profile.occupation }}</h5>
           <p>{{ site.data.profile.location }}</p>
+          {% if site.data.profile.links.size > 0 %}
+            <nav class="center-align">
+              {% for link in site.data.profile.links %}
+                <a
+                  class="button transparent circle"
+                  href="{{ link.url }}"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="{{ link.image }}" alt="{{ link.title }}" />
+                </a>
+              {% endfor %}
+            </nav>
+          {% endif %}
+
         </div>
       </article>
 

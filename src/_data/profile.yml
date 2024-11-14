@@ -1,7 +1,7 @@
 name: Chris Mavrommatis
 occupation: Software Engineer
 location: Athens, Greece
-image: https://picsum.photos/200
+image: /assets/profile/profilepic-2024es_500px.jpg
 logo: /assets/profile/cm_logo_hexgon_200x200.png
 
 tech_stack:
@@ -21,3 +21,11 @@ tech_stack:
     image: /assets/tech/azure_logo.png
   - name: Html
     image: /assets/tech/html_logo.png
+
+links:
+  - title: Github
+    url: 'https://github.com/ChrisMavrommatis/'
+    image: '/assets/profile/github-mark-white.svg'
+  - title: LinkedIn
+    url: 'https://www.linkedin.com/in/chris-mavrommatis/'
+    image: '/assets/profile/LinkedIn_icon.svg'
