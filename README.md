@@ -1,5 +1,7 @@
 # chrismavrommatis.github.io
 
+This repository hosts my personal website built using Jekyll and optimized for GitHub Pages. The site showcases my portfolio, blog, and projects, along with a section of technology cards highlighting my skills.
+
 ## Technologies Used
 
 [![Jekyll](https://img.shields.io/badge/-Jekyll-CC0000?logo=jekyll&logoColor=white&style=flat-square)](https://jekyllrb.com/)
