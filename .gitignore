@@ -5,7 +5,7 @@ package-lock.json
 .sass-cache
 dist
 _site
-
+.idea
 
 *.crt
 *.key
