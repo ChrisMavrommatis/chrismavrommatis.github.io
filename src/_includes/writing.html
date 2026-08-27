@@ -1,0 +1,26 @@
+{%- assign ui = site.data.ui -%}
+{%- assign posts = site.posts -%}
+{%- if posts.size > 0 -%}
+  {%- assign recent = posts | slice: 0, 4 -%}
+  <div class="writing">
+    {%- for post in recent -%}
+      <article>
+        <h3 class="entry__title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="entry__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time>
+          {%- if post.project -%}
+            {%- assign proj = site.data.projects | where: 'slug', post.project | first -%}
+            {%- if proj %} &middot; {{ proj.name }}{% endif -%}
+          {%- elsif post.archive_source %} &middot; {{ post.archive_source }}
+          {%- endif -%}
+        </p>
+      </article>
+    {%- endfor -%}
+  </div>
+
+  {%- if posts.size > 4 -%}
+    <p class="more"><a href="{{ ui.blog.index_url | required: 'ui.blog.index_url' }}">{{ ui.blog.all | required: 'ui.blog.all' }} &rarr;</a></p>
+  {%- endif -%}
+{%- else -%}
+  <p class="band__note">{{ ui.empty.writing | required: 'ui.empty.writing' }}</p>
+{%- endif -%}

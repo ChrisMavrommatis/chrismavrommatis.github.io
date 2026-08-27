@@ -1,0 +1,29 @@
+---
+# Not a destination - it must never appear in the sitemap.
+title: 404
+layout: default
+permalink: /404
+sitemap:
+  exclude: true
+
+---
+
+{%- assign nf = site.data.ui.not_found -%}
+
+<header class="band">
+  <div class="edge">
+    {% include masthead.html %}
+
+    <div class="hero spine">
+      <p class="hero__q">{{ nf.question | required: 'ui.not_found.question' }}</p>
+      <h1 class="hero__headline">{{ nf.title | required: 'ui.not_found.title' }}</h1>
+      <p class="hero__lede">{{ nf.body | required: 'ui.not_found.body' }}</p>
+      <p class="hero__links">
+        <a href="/">{{ nf.home | required: 'ui.not_found.home' }}</a>
+        <a href="{{ site.data.ui.blog.index_url }}">{{ site.data.ui.blog.all }}</a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<main id="content" class="edge"></main>

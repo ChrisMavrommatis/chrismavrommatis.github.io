@@ -1,36 +1,24 @@
-<div class="responsive padding center-align middle-align">
+{%- assign ui = site.data.ui -%}
+<nav class="pager" aria-label="{{ ui.pager.label | required: 'ui.pager.label' }}">
+  {%- if paginator.previous_page -%}
+    <a class="pager__step" href="{{ paginator.previous_page_path | replace: 'index.html', '' }}" rel="prev">{{ ui.pager.newer | required: 'ui.pager.newer' }}</a>
+  {%- else -%}
+    <span class="pager__step pager__step--off">{{ ui.pager.newer | required: 'ui.pager.newer' }}</span>
+  {%- endif -%}
 
-  <nav>
-    {% if paginator.previous_page %}
-      <a class="button circle small border" href="{{ paginator.previous_page_path | replace: 'index.html', '' }}">
-        <i>chevron_left</i>
-      </a>
-    {% else %}
-      <a class="button circle small fill" disabled>
-        <i>chevron_left</i>
-      </a>
-    {% endif %}
-    {% for trail in paginator.page_trail %}
-      {% if trail.num == paginator.page %}
-        <a class="button circle small">
-          {{ trail.num }}
-        </a>
-      {% else %}
-        <a class="button circle small border" href="{{ trail.path | replace: 'index.html', ''}}">
-          {{ trail.num }}
-        </a>
-      {% endif %}
+  <ol class="pager__trail">
+    {%- for trail in paginator.page_trail -%}
+      {%- if trail.num == paginator.page -%}
+        <li><span class="pager__num" aria-current="page">{{ trail.num }}</span></li>
+      {%- else -%}
+        <li><a class="pager__num" href="{{ trail.path | replace: 'index.html', '' }}">{{ trail.num }}</a></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ol>
 
-    {% endfor %}
-    {% if paginator.next_page %}
-      <a class="button circle small border" href="{{ paginator.next_page_path | replace: 'index.html', '' }}">
-        <i>chevron_right</i>
-      </a>
-    {% else %}
-      <a class="button circle small fill" disabled>
-        <i>chevron_right</i>
-      </a>
-    {% endif %}
-  </nav>
-
-</div>
+  {%- if paginator.next_page -%}
+    <a class="pager__step" href="{{ paginator.next_page_path | replace: 'index.html', '' }}" rel="next">{{ ui.pager.older | required: 'ui.pager.older' }}</a>
+  {%- else -%}
+    <span class="pager__step pager__step--off">{{ ui.pager.older | required: 'ui.pager.older' }}</span>
+  {%- endif -%}
+</nav>

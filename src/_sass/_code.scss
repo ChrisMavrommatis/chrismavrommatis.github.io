@@ -1,0 +1,66 @@
+// Code panels follow the theme. assets/css/pygments.scss swaps `vs` and monokai.
+
+code,
+kbd,
+samp,
+pre {
+	font-family: var(--font-mono);
+	font-variant-ligatures: none;
+}
+
+:not(pre) > code {
+	padding: 0.1em 0.35em;
+	font-size: 0.875em;
+	color: var(--text);
+	background: var(--paper-raised);
+	border: var(--hairline) solid var(--rule-faint);
+	border-radius: var(--radius);
+	word-break: break-word;
+}
+
+pre {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
+pre code {
+	display: block;
+	padding: 0;
+	background: none;
+	border: 0;
+	font-size: inherit;
+	color: inherit;
+}
+
+// Two shapes: {% highlight %} emits figure.highlight, fenced markdown emits div.highlighter-rouge.
+.highlight,
+.highlighter-rouge {
+	margin: 0;
+	background: var(--ink);
+	border: var(--hairline) solid var(--ink-rule);
+	border-left: 2px solid var(--accent);
+	border-radius: var(--radius);
+	color: var(--ink-text);
+}
+
+.highlighter-rouge .highlight {
+	border: 0;
+	border-radius: 0;
+}
+
+.highlight pre,
+.highlighter-rouge pre {
+	margin: 0;
+	padding: var(--space-4) var(--space-5);
+	font-size: 0.8125rem;
+	line-height: 1.7;
+	tab-size: 4;
+}
+
+.highlight .lineno {
+	padding-right: var(--space-4);
+	color: var(--ink-muted);
+	user-select: none;
+}
+

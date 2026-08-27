@@ -1,0 +1,32 @@
+{%- assign ui = site.data.ui -%}
+{%- assign profile = site.data.profile -%}
+
+<footer class="band">
+  {%- if page.layout == 'blog_detail' -%}
+    {%- assign newer = page.next -%}
+    {%- assign older = page.previous -%}
+    <div class="edge article__foot">
+      {%- if older -%}
+        <a class="next" href="{{ older.url }}">
+          <span class="next__label">{{ ui.blog.next | required: 'ui.blog.next' }}</span>
+          <span class="next__title">{{ older.title }}</span>
+        </a>
+      {%- elsif newer -%}
+        <a class="next" href="{{ newer.url }}">
+          <span class="next__label">{{ ui.blog.newer | required: 'ui.blog.newer' }}</span>
+          <span class="next__title">{{ newer.title }}</span>
+        </a>
+      {%- else -%}
+        <span></span>
+      {%- endif -%}
+      <a class="all-posts" href="{{ ui.blog.index_url | required: 'ui.blog.index_url' }}">{{ ui.blog.all | required: 'ui.blog.all' }} &rarr;</a>
+    </div>
+  {%- endif -%}
+
+  <div class="edge signoff">
+    {%- if profile.signoff.line and profile.signoff.line != '' -%}
+      <p>{{ profile.signoff.line }}</p>
+    {%- endif -%}
+    <p class="signoff__farewell">{{ profile.signoff.farewell | required: 'profile.signoff.farewell' }}</p>
+  </div>
+</footer>

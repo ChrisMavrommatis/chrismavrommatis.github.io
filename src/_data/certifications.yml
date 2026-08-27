@@ -1,0 +1,38 @@
+# Newest first. `expires` is omitted where the credential does not expire, so a lapsed
+# one can be dropped rather than shown as current.
+# `url` links the name where I have one.
+
+- name: AI Agent Security Specialist
+  issuer: Proofpoint
+  issued: '2026-06'
+  expires: '2028-06'
+
+- name: Azure Security Engineer Associate (AZ-500)
+  issuer: Microsoft
+  issued: '2025-07'
+  expires: '2027-07'
+
+- name: Security, Compliance, and Identity Fundamentals (SC-900)
+  issuer: Microsoft
+  issued: '2024-07'
+
+- name: Blue Team Level 1 (BTL1)
+  issuer: Security Blue Team
+  issued: '2023-04'
+
+- name: Certified in Cybersecurity (CC)
+  issuer: ISC2
+  issued: '2022-11'
+  expires: '2028-11'
+
+- name: Azure Fundamentals (AZ-900)
+  issuer: Microsoft
+  issued: '2022-01'
+
+- name: Junior Penetration Tester (eJPT)
+  issuer: INE Security
+  issued: '2021-05'
+
+- name: Professional Scrum Master I (PSM I)
+  issuer: Scrum.org
+  issued: '2020-09'

@@ -2,51 +2,53 @@
 layout: default
 ---
 
-{% if paginator.posts.size > 0 %}
-  <div class="padding">
-    <div class="grid large-space">
+{%- assign ui = site.data.ui -%}
 
-      {% for post in paginator.posts %}
+<header class="band">
+  <div class="edge">
+    {% include masthead.html %}
 
-        <div class="s12 m12 l6">
-          <article class="no-padding">
-            {% image class="responsive small" url=post.main_img alt=post.title width=400 height=150 %}
-            <div class="padding">
-              {% if post.title_class %}
-                <h5 class="{{ post.title_class }}">{{ post.title }}</h5>
-              {% else %}
-                <h5>{{ post.title }}</h5>
-              {% endif %}
-
-              <p>{{ post.excerpt | markdownify | clean_content: 120 }}</p>
-              <nav>
-                <a class="button" href="{{ post.url }}">Read More</a>
-                {% if post.draft %}
-                  <button class="chip">Draft</button>
-                {% endif %}
-              </nav>
-
-            </div>
-          </article>
-        </div>
-
-      {% endfor %}
-
+    <div class="hero spine">
+      <p class="hero__q">{{ ui.questions.written | required: 'ui.questions.written' }}</p>
+      <h1 class="hero__headline">{{ ui.blog.title | required: 'ui.blog.title' }}</h1>
+      {%- if site.data.profile.answers.index -%}
+        <p class="hero__lede">{{ site.data.profile.answers.index }}</p>
+      {%- endif -%}
     </div>
+  </div>
+</header>
 
-    {% if paginator.total_pages > 1 %}
+<main id="content" class="edge">
+  {%- if paginator.posts.size > 0 -%}
+    <ul class="entries">
+      {%- for post in paginator.posts -%}
+        <li>
+          <p class="entry__meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %B %Y' }}</time>
+            {%- if post.project -%}
+              {%- assign proj = site.data.projects | where: 'slug', post.project | first -%}
+              {%- if proj %}<span class="entry__tag">{{ proj.name }}</span>{% endif -%}
+            {%- elsif post.archive_source -%}
+              <span class="entry__tag">{{ post.archive_source }}</span>
+            {%- endif -%}
+            {%- if post.draft %}<span class="entry__tag">Draft</span>{% endif -%}
+          </p>
+
+          <div>
+            <h2 class="entry__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            {%- assign excerpt = post.excerpt | markdownify | clean_content: 220 -%}
+            {%- if excerpt != '' -%}
+              <p class="entry__excerpt">{{ excerpt }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if paginator.total_pages > 1 -%}
       {% include pager.html %}
-    {% endif %}
-
-  </div>
-{% else %}
-  <div class="padding medium middle-align center-align">
-    <div>
-      <h2>:(</h2>
-      <h3>
-        Nothing Here
-      </h3>
-      <p>Come back a little later. Maybe there will be something.</p>
-    </div>
-  </div>
-{% endif %}
+    {%- endif -%}
+  {%- else -%}
+    <p class="band__note spine">{{ ui.empty.posts | required: 'ui.empty.posts' }}</p>
+  {%- endif -%}
+</main>

@@ -1,0 +1,12 @@
+{%- if site.data.profile.stack.size > 0 -%}
+  {%- assign names = '' | split: '' -%}
+  {%- for id in site.data.profile.stack -%}
+    {%- assign tech = site.data.tech[id] -%}
+    {%- if tech -%}
+      {%- assign names = names | push: tech.name -%}
+    {%- else -%}
+      {%- assign names = names | push: id -%}
+    {%- endif -%}
+  {%- endfor -%}
+  <p class="stack-line">{{ names | join: ' &middot; ' }}</p>
+{%- endif -%}

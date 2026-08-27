@@ -2,4 +2,67 @@
 layout: default
 ---
 
-{% include profile.html %}
+{%- assign ui = site.data.ui -%}
+{%- assign profile = site.data.profile -%}
+{%- assign q = ui.questions -%}
+{%- assign a = profile.answers -%}
+
+<header class="band">
+  <div class="edge">
+    {% include masthead.html %}
+
+    <div class="hero">
+      <p class="hero__q">{{ q.who | required: 'ui.questions.who' }}</p>
+      <h1 class="hero__headline">{{ profile.headline | required: 'profile.headline' }}</h1>
+
+      {%- if profile.intro -%}
+        <p class="hero__lede">{{ profile.intro }}</p>
+      {%- endif -%}
+
+      {%- if profile.links.size > 0 -%}
+        <p class="hero__links">
+          {%- for link in profile.links -%}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
+          {%- endfor -%}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+<main id="content" class="edge">
+  <section class="qa" id="work">
+    <h2 class="qa__q">{{ q.built | required: 'ui.questions.built' }}</h2>
+    <div class="qa__a">
+      {%- if a.built -%}<p>{{ a.built }}</p>{%- endif -%}
+      {% include projects.html %}
+    </div>
+  </section>
+
+  <section class="qa" id="writing">
+    <h2 class="qa__q">{{ q.written | required: 'ui.questions.written' }}</h2>
+    <div class="qa__a">
+      {%- if a.written -%}<p class="is-narrow">{{ a.written }}</p>{%- endif -%}
+      {% include writing.html %}
+    </div>
+  </section>
+
+  <section class="qa" id="credentials">
+    <h2 class="qa__q">{{ q.know | required: 'ui.questions.know' }}</h2>
+    <div class="qa__a">
+      {%- if a.know_lead -%}<p class="is-narrow">{{ a.know_lead }}</p>{%- endif -%}
+      {% include stack.html %}
+      {%- if a.know_tail -%}<p class="is-narrow">{{ a.know_tail }}</p>{%- endif -%}
+      {% include credentials.html %}
+    </div>
+  </section>
+
+  {%- if a.everything -%}
+    <section class="qa">
+      <h2 class="qa__q">{{ q.everything | required: 'ui.questions.everything' }}</h2>
+      <div class="qa__a">
+        <p class="is-narrow">{{ a.everything }}</p>
+      </div>
+    </section>
+  {%- endif -%}
+</main>

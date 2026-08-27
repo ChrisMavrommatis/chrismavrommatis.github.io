@@ -1,0 +1,21 @@
+# Normalise to LF in the repository. The site is edited from both Windows and Linux, and a
+# CRLF checkin would show every line of a Liquid template as changed.
+* text=auto eol=lf
+
+# Windows-only tooling that must keep its line endings to run.
+*.ps1 text eol=crlf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+
+# Collapsed in diffs and kept out of the language stats.
+Gemfile.lock linguist-generated=true
+package-lock.json linguist-generated=true
+
+# Jekyll templates. GitHub reads bare .html as HTML, which loses the Liquid highlighting.
+*.html linguist-language=Liquid

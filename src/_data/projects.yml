@@ -1,0 +1,57 @@
+# Only `listed: true` shows on the site.
+#
+# `stack` - the few technologies worth naming, most prominent first. Display only,
+#           nothing links them. Platform and language first, then whatever makes the
+#           project specific, minus anything the description already says.
+#
+# `description` is a predicate. It renders straight after the bolded name, so it has
+# to read on from it: "Binacle.Net answers whether...".
+
+- slug: binacle-net
+  name: Binacle.Net
+  description: is an API for the 3D bin packing problem. It answers whether a set of items fits in a bin, and where each one goes.
+  url: https://github.com/binacle-labs/Binacle.Net
+  stack: [dotnet, csharp, aspnet-core, docker]
+  listed: true
+
+- slug: consentio
+  name: Consentio
+  description: is a cookie consent banner for static sites. It takes one answer from the visitor and turns it into Google Consent Mode signals.
+  url: https://github.com/ChrisMavrommatis/consentio
+  stack: [typescript, web-components, google-consent-mode]
+  listed: true
+
+- slug: claude-sandbox
+  name: Claude Sandbox
+  description: builds a locked-down WSL2 distro on Windows and runs a coding agent inside it, so it does not have the run of the host.
+  url: https://github.com/ChrisMavrommatis/claude-sandbox
+  stack: [powershell, wsl2, podman]
+  listed: true
+
+- slug: openapi-examples
+  name: OpenApiExamples
+  description: puts request and response examples into the OpenAPI document ASP.NET Core generates for a minimal API.
+  url: https://github.com/ChrisMavrommatis/OpenApiExamples
+  stack: [dotnet, csharp, openapi, nuget]
+  listed: false
+
+- slug: flux-results
+  name: FluxResults
+  description: gives C# result and union types, so a method can hand back an outcome instead of throwing an exception.
+  url: https://github.com/ChrisMavrommatis/FluxResults
+  stack: [dotnet, csharp, nuget]
+  listed: false
+
+- slug: claude-forge
+  name: claude-forge
+  description: holds my own Claude Code skills and status line, and a script that installs them.
+  url: https://github.com/ChrisMavrommatis/claude-forge
+  stack: [claude-code, powershell, bash]
+  listed: false
+
+- slug: flipperzero-apps
+  name: flipperzero-apps
+  description: 'holds my Flipper Zero apps. So far one: a distance meter that reads an HC-SR04 ultrasonic sensor over GPIO.'
+  url: https://github.com/ChrisMavrommatis/flipperzero-apps
+  stack: [c, flipper-zero, gpio]
+  listed: false

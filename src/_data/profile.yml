@@ -1,31 +1,57 @@
 name: Chris Mavrommatis
-occupation: Software Engineer
-location: Athens, Greece
+occupation: Software engineer, .NET and security
+headline: >-
+  I build software in .NET, and a lot of my own time goes on
+  <em>how it gets attacked</em>.
+intro: >-
+  Mostly C# on the back end, APIs and the code underneath them. When something
+  surprises me I go and find out why, then I write down what I found, the failed
+  attempts included. That is most of what is here.
+
+answers:
+  built: >-
+    Hobby projects, mostly. Each one started because I wanted to find out how
+    something worked, and I hope a couple of them are of some use to someone else.
+  built_more: >-
+    There are a few smaller ones on
+    <a href="https://github.com/ChrisMavrommatis/">GitHub</a>, two of them
+    published as NuGet packages.
+  written: >-
+    Two things, mostly. Security, for people who do not work in security. And
+    whatever I have just taken apart, benchmarks, allocation counts, and the times
+    I was measuring the wrong thing.
+  know_lead: Day to day I work with these.
+  know_tail: >-
+    The rest came from work, or from breaking my own things. Some of it I sat an
+    exam for, and that is the only part with a date on it.
+  everything: >-
+    No. There is more I have not written up, and a couple of things I got wrong
+    that I ought to go back to. A subject for a later date.
+  index: >-
+    Security for people who do not spend their day on it, and whatever I have just
+    gone and measured.
+
+signoff:
+  line: That's it for now…
+  farewell: Take care and stay safe…
+
+# The share image, and the one on the JSON-LD Person.
 image: /assets/profile/profilepic-2024es_500px.jpg
-logo: /assets/profile/cm_logo_hexgon_200x200.png
 
-tech_stack:
-  - name: .NET
-    image: /assets/tech/dotNet_logo.svg
-  - name: Javascript
-    image: /assets/tech/js_logo.png
-  - name: Docker
-    image: /assets/tech/docker_logo_blue.svg
-  - name: Git
-    image: /assets/tech/git_logo.png
-  - name: Kubernetes
-    image: /assets/tech/kubernetes_logo.svg
-  - name: SQL
-    image: /assets/tech/database_logo.png
-  - name: Azure
-    image: /assets/tech/azure_logo.png
-  - name: Html
-    image: /assets/tech/html_logo.png
+# My pick, in my order. Ids resolve against tech.yml.
+stack:
+  - dotnet
+  - javascript
+  - docker
+  - git
+  - kubernetes
+  - sql
+  - azure
+  - html
 
+# Text links in the hero, and the sameAs list on the JSON-LD Person.
 links:
-  - title: Github
+  - title: GitHub
     url: 'https://github.com/ChrisMavrommatis/'
-    image: '/assets/profile/github-mark-white.svg'
   - title: LinkedIn
     url: 'https://www.linkedin.com/in/chris-mavrommatis/'
-    image: '/assets/profile/LinkedIn_icon.svg'

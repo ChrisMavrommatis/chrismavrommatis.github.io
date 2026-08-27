@@ -1,0 +1,39 @@
+# The pages are questions a visitor arrives with, answered plainly.
+questions:
+  who: Who are you?
+  built: What have you built?
+  written: What have you written?
+  know: How do you know any of this?
+  everything: Is that everything?
+
+blog:
+  title: Everything, newest first.
+  all: Everything I have written
+  index_url: /blog/
+  next: Next, older
+  newer: Next, newer
+  wrote_about: I wrote about it in
+
+not_found:
+  question: Where am I?
+  title: Not on a page that exists.
+  body: >-
+    Either the page moved, or it was never here. I do not keep a record of the old
+    addresses, so start again from one of the links below.
+  home: Start from the beginning
+
+empty:
+  posts: Nothing here yet. Come back another time.
+  writing: Nothing published yet.
+
+skip_link: Skip to content
+nav_label: Sections
+
+theme:
+  label: Theme
+  toggle: Switch theme
+
+pager:
+  label: Pagination
+  newer: Newer
+  older: Older

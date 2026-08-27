@@ -1,18 +1,51 @@
 ---
 layout: default
 ---
-{% if page.title_class %}
-  <h1 class="{{ page.title_class }}">
-    {{ page.title }}
-  </h1>
-  {% if page.draft %}
-    <button class="chip">Draft</button>
-  {% endif %}
-{% else %}
-  <h1>
-    {{ page.title }}
-  </h1>
-{% endif %}
-<article class="responsive padding">
-  {{ content }}
-</article>
+
+{%- assign ui = site.data.ui -%}
+{%- assign minutes = page.content | number_of_words | divided_by: 200 | plus: 1 -%}
+
+<header class="band">
+  <div class="edge">
+    {% include masthead.html %}
+
+    <div class="article__head spine">
+      <p class="article__meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>
+        {%- if page.project -%}
+          {%- assign proj = site.data.projects | where: 'slug', page.project | first -%}
+          {%- if proj %} &middot; <a href="/#project-{{ proj.slug }}">{{ proj.name }}</a>{% endif -%}
+        {%- endif %}
+        &middot; {{ minutes }} min
+        {%- if page.draft %} &middot; Draft{% endif -%}
+      </p>
+
+      <h1 class="article__title">{{ page.title }}</h1>
+
+      {%- assign standfirst = page.excerpt | markdownify | clean_content: 260 -%}
+      {%- if standfirst != '' -%}
+        <p class="article__standfirst">{{ standfirst }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+<main id="content" class="edge">
+  {%- if page.archive_note -%}
+    <p class="archive-note spine">{{ page.archive_note }}</p>
+  {%- endif -%}
+
+  {%- assign body = content -%}
+  {%- if standfirst != '' and content contains page.excerpt_separator -%}
+    {%- assign chunks = content | split: page.excerpt_separator -%}
+    {%- assign body = chunks | last | strip -%}
+    {%- assign lead = body | slice: 0, 4 -%}
+    {%- if lead == '</p>' -%}
+      {%- assign body = body | slice: 4, 2000000 -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  <article class="prose spine">
+    {{ body }}
+  </article>
+</main>

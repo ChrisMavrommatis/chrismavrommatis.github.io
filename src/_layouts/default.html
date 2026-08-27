@@ -2,10 +2,10 @@
 layout: page
 ---
 
-{% include header.html %}
+{%- assign ui = site.data.ui -%}
 
-{% include menubar.html %}
+<a class="skip-link" href="#content">{{ ui.skip_link | required: 'ui.skip_link' }}</a>
 
-<main class="responsive padding">
-  {{ content }}
-</main>
+{{ content }}
+
+{% include site-footer.html %}

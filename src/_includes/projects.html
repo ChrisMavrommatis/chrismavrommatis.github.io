@@ -1,0 +1,20 @@
+{%- assign ui = site.data.ui -%}
+{%- assign listed = site.data.projects | where: 'listed', true -%}
+{%- if listed.size > 0 -%}
+  <div class="work">
+    {%- for p in listed -%}
+      {%- assign p_posts = site.posts | where: 'project', p.slug -%}
+      <p id="project-{{ p.slug }}">
+        <strong class="work__name">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener noreferrer">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong>
+        {{ p.description }}
+        {%- if p_posts.size > 0 %} {{ ui.blog.wrote_about | required: 'ui.blog.wrote_about' }}
+          {%- for post in p_posts %} <a href="{{ post.url }}">{{ post.title }}</a>{% unless forloop.last %},{% endunless %}{% endfor -%}.
+        {%- endif -%}
+      </p>
+    {%- endfor -%}
+
+    {%- if site.data.profile.answers.built_more -%}
+      <p>{{ site.data.profile.answers.built_more }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}

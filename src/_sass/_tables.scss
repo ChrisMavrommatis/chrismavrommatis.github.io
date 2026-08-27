@@ -1,0 +1,83 @@
+// Wide tables scroll here, never the page.
+.table-wrap,
+.table-container {
+	width: 100%;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+	text-align: left;
+}
+
+// Inside a scroll container the table takes the width its content needs.
+.table-wrap > table,
+.table-container > table {
+	width: auto;
+	min-width: 100%;
+}
+
+.table-wrap th,
+.table-wrap td,
+.table-container th,
+.table-container td {
+	white-space: nowrap;
+}
+
+caption {
+	margin-bottom: var(--space-3);
+	color: var(--text-muted);
+	font-size: 0.8125rem;
+	text-align: left;
+}
+
+th,
+td {
+	padding: var(--space-2) var(--space-4);
+	vertical-align: baseline;
+	border-bottom: var(--hairline) solid var(--line);
+}
+
+th:first-child,
+td:first-child {
+	padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+	padding-right: 0;
+}
+
+thead th {
+	font-family: var(--font-mono);
+	font-size: 0.63rem;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-faint);
+	border-bottom: var(--hairline) solid var(--rule);
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+// {: .responsive-table .no-space} on the benchmark tables were BeerCSS classes.
+// The container already scrolls, these just stop the table fighting it.
+
+.responsive-table {
+	width: auto;
+	min-width: 100%;
+}
+
+.no-space th,
+.no-space td {
+	padding-block: var(--space-1);
+}

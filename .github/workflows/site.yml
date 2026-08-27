@@ -1,0 +1,83 @@
+name: Site
+
+# Dispatch only. Nothing runs on a push.
+#
+# `publish` defaults to false, so a run builds and uploads the artifact and stops.
+# Nothing reaches the live site until it is dispatched with `publish` on.
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Deploy the built site to GitHub Pages. Off builds and uploads only.'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# Keyed on the workflow, not the ref: a publish must never be cancelled by a later push.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version-file: .ruby-version
+          bundler-cache: true
+
+      # GitHub Pages cannot build this itself - jekyll-tidy is not on its plugin allowlist,
+      # and the site runs `safe: false` with three custom plugins - so the site is built
+      # here and only the output is handed over.
+      # Both configs: _config.yml holds everything, _config.prod.yml overrides only the
+      # Google Tag Manager id. A local or pull-request build never loads it.
+      - name: Build the site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --trace --config _config.yml,_config.prod.yml
+
+      # The address lives in _config.yml and nowhere else. If it is ever wrong, every link
+      # on the site is wrong, so it is worth one line of output per run.
+      - name: What it was built for
+        run: |
+          echo "url + baseurl, from _config.yml:"
+          grep -E '^(url|baseurl)' _config.yml
+
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with:
+          path: _site
+
+  # Everything above is reversible. This is not: it replaces what is on the live site.
+  deploy:
+    name: deploy
+    needs: build
+    if: ${{ inputs.publish }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+
+  not-published:
+    name: not published
+    needs: build
+    if: ${{ !inputs.publish }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Built and uploaded. Nothing was deployed."
+          echo "To publish: run this workflow from the Actions tab with 'publish' on."

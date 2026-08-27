@@ -3,10 +3,12 @@ title:  "How I reduced memory usage by 70% in Binacle.Net"
 title_class: "small"
 lastmod	: "2024-11-08 09:05:00"
 main_img: "/assets/posts/how-i-reduced-memory-usage-by-70-percent-in-Binacle-net/main.jpg"
-tags: 
-  - .Net 
-  - Memory Management
-  - Binacle.Net
+categories:
+  - performance
+project: binacle-net
+stack:
+  - dotnet
+  - csharp
 ---
 
 

@@ -1,0 +1,64 @@
+// The icon shows the theme the click moves to, so it needs the same three states as
+// the tokens. It sits on the band in both themes, so it reads band tokens.
+
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	padding: 0;
+	background: none;
+	border: 0;
+	color: var(--band-faint);
+	font: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	line-height: 1;
+	cursor: pointer;
+	transition: color 0.15s ease;
+}
+
+.theme-toggle:hover {
+	color: var(--band-accent);
+}
+
+.theme-toggle:focus-visible {
+	outline-color: var(--band-accent);
+}
+
+.theme-toggle svg {
+	width: 0.85rem;
+	height: 0.85rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+// Don't set display on `.theme-toggle svg`, it outranks these and both icons show.
+.theme-toggle__moon {
+	display: block;
+}
+
+.theme-toggle__sun {
+	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) .theme-toggle__sun {
+		display: block;
+	}
+
+	:root:not([data-theme='light']) .theme-toggle__moon {
+		display: none;
+	}
+}
+
+:root[data-theme='dark'] .theme-toggle__sun {
+	display: block;
+}
+
+:root[data-theme='dark'] .theme-toggle__moon {
+	display: none;
+}
+

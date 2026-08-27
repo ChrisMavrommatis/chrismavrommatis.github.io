@@ -1,0 +1,29 @@
+{%- assign ui = site.data.ui -%}
+{%- assign page_ref = page.url -%}
+{%- if page.menu_ref -%}{%- assign page_ref = page.menu_ref -%}{%- endif -%}
+
+<div class="band__top">
+  <a class="band__brand" href="/">{{ site.data.profile.name }}</a>
+
+  <nav class="band__nav" aria-label="{{ ui.nav_label | required: 'ui.nav_label' }}">
+    {%- if site.data.menus.navigation_menu -%}
+      {%- assign menu_items = site.data.menus.navigation_menu | sort: 'order' -%}
+      {%- for node in menu_items -%}
+        {%- assign node_title = node.title -%}
+        {%- if node.menu_title -%}{%- assign node_title = node.menu_title -%}{%- endif -%}
+        {%- assign is_current = false -%}
+        {%- if page_ref == node.url -%}
+          {%- assign is_current = true -%}
+        {%- elsif node.url != '/' and page_ref contains node.url -%}
+          {%- assign is_current = true -%}
+        {%- endif -%}
+        {%- if is_current -%}
+          <a href="{{ node.url }}" aria-current="page">{{ node_title }}</a>
+        {%- else -%}
+          <a href="{{ node.url }}">{{ node_title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {% include theme-toggle.html %}
+  </nav>
+</div>

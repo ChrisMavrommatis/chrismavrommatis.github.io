@@ -4,17 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% include seo.html %}
-    <link href="https://cdn.jsdelivr.net/npm/beercss@3.7.10/dist/cdn/beer.min.css" rel="stylesheet" />
-    <link href="/css/main.css" rel="stylesheet" />
-    <link href="/css/pygments.css" rel="stylesheet" />
-    {% gtm_head site.data.aux.gtm %}
+
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Karla:wght@400..800&display=swap" rel="stylesheet" />
+
+    <link href="/assets/css/main.css" rel="stylesheet" />
+    <link href="/assets/css/pygments.css" rel="stylesheet" />
+    {% gtm_head site.gtm %}
   </head>
 
-  <body>
-    {% gtm_body site.data.aux.gtm %}
+  <body class="layout-{{ page.layout | default: 'page' }}">
+    {% gtm_body site.gtm %}
 
     {{ content }}
-    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.7.10/dist/cdn/beer.min.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.2/dist/cdn/material-dynamic-colors.min.js"></script>
   </body>
 </html>

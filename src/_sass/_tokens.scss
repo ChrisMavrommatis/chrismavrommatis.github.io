@@ -1,0 +1,143 @@
+// Full light palette on bare :root. The dark blocks only override it. Never define a
+// colour only inside a media or [data-theme] block, it won't apply when nothing is stamped.
+
+:root {
+	color-scheme: light;
+
+	// --- Ground ----------------------------------------------------------
+	--paper: #f9f8f3;
+	--paper-tint: #efede4;
+	--text: #171c1a;
+	--text-muted: #4c5553;
+	--text-faint: #5f6865;
+	--line: #e4e1d6;
+	--rule: #d3cfc2;
+
+	// --- Accent ----------------------------------------------------------
+	// --accent does links and the marks. --accent-quiet carries dates only.
+	--accent: #0b6e66;
+	--accent-quiet: #4a625e;
+	--accent-wash: rgba(11, 110, 102, 0.2);
+
+	// --- The band --------------------------------------------------------
+	// A surface, not a theme, so both themes define it.
+	--band: #0f2523;
+	--band-text: #f2f1ea;
+	--band-muted: #a6b5b1;
+	--band-faint: #849792;
+	--band-accent: #4fd1c0;
+	--band-line: #23413e;
+
+	// Aliases the code and prose partials read.
+	--paper-raised: var(--paper-tint);
+	--rule-faint: var(--line);
+
+	--focus: var(--accent);
+	--selection: rgba(11, 110, 102, 0.16);
+	--selection-text: #171c1a;
+
+	// Code panels follow the theme. pygments.scss swaps vs and monokai.
+	--ink: #fcfbf7;
+	--ink-raised: #f1efe6;
+	--ink-text: #1b2320;
+	--ink-muted: #7d8683;
+	--ink-rule: #dfdbcd;
+
+	// --- Plates ----------------------------------------------------------
+	// Post charts are white PNGs. Dark mats them, light only needs a hairline.
+	--plate: transparent;
+	--plate-pad: 0;
+	--plate-line: var(--line);
+	--plate-dim: none;
+
+	// --- Type ------------------------------------------------------------
+	--font-display: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-body: 'Karla', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+	--font-mono: 'DM Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas,
+		'Liberation Mono', monospace;
+
+	// Light text on dark looks heavier, so this drops in the dark theme.
+	--display-weight: 600;
+	--display-track: -0.015em;
+
+	// --- Metrics ---------------------------------------------------------
+	--page-max: 58rem;
+	--gutter: 1.5rem;
+	--edge: max(var(--gutter), calc((100% - var(--page-max)) / 2));
+
+	// One margin column down every page. Everything else starts at --spine.
+	--spine-col: 15rem;
+	--spine-gap: 4rem;
+	--spine: calc(var(--spine-col) + var(--spine-gap));
+	--measure: 38rem;
+
+	--step-0: 1.125rem;
+	--step-1: 1.25rem;
+	--step-2: 1.42rem;
+	--step-3: clamp(1.5rem, 3.4vw, 1.85rem);
+	--step-4: clamp(1.9rem, 5.4vw, 3.1rem);
+
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-7: 3rem;
+	--space-8: 4.5rem;
+
+	--radius: 6px;
+	--hairline: 1px;
+}
+
+// Not inverted. --accent-quiet is 9.15:1 here and 1.88:1 on bone, so it changes hue
+// instead of value. If I move any of these I have to re-measure the lot.
+@mixin dark-tokens {
+	color-scheme: dark;
+
+	--paper: #101615;
+	--paper-tint: #182120;
+	--text: #e9edec;
+	--text-muted: #a4aeac;
+	--text-faint: #8d9694;
+	--line: #212b29;
+	--rule: #2e3a38;
+
+	--accent: #46d3c0;
+	--accent-quiet: #d8b26a;
+	--accent-wash: rgba(70, 211, 192, 0.2);
+
+	--band: #18201f;
+	--band-text: #e9edec;
+	--band-muted: #a4aeac;
+	--band-faint: #8d9694;
+	--band-accent: #46d3c0;
+	--band-line: #2a3634;
+
+	--selection: rgba(70, 211, 192, 0.22);
+	--selection-text: #e9edec;
+
+	--ink: #0b100f;
+	--ink-raised: #151c1b;
+	--ink-text: #e4e9e7;
+	--ink-muted: #8f9895;
+	--ink-rule: #232e2c;
+
+	--plate: #e8e7e1;
+	--plate-pad: 0.75rem;
+	--plate-line: #2e3a38;
+	--plate-dim: brightness(0.92) contrast(1.03);
+
+	--display-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		@include dark-tokens;
+	}
+}
+
+:root[data-theme='dark'] {
+	@include dark-tokens;
+}

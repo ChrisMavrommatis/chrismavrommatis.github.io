@@ -1,0 +1,54 @@
+# Every id used by profile, projects and posts, and nothing else.
+# An id means the same thing everywhere it appears. Name only, no logos.
+
+# Languages and markup
+dotnet:
+  name: .NET
+csharp:
+  name: C#
+typescript:
+  name: TypeScript
+javascript:
+  name: JavaScript
+c:
+  name: C
+bash:
+  name: Bash
+powershell:
+  name: PowerShell
+sql:
+  name: SQL
+html:
+  name: HTML
+
+# Frameworks and libraries
+aspnet-core:
+  name: ASP.NET Core
+openapi:
+  name: OpenAPI
+web-components:
+  name: Web Components
+google-consent-mode:
+  name: Google Consent Mode
+
+# Platform and tooling
+docker:
+  name: Docker
+podman:
+  name: Podman
+kubernetes:
+  name: Kubernetes
+azure:
+  name: Azure
+wsl2:
+  name: WSL2
+claude-code:
+  name: Claude Code
+flipper-zero:
+  name: Flipper Zero
+gpio:
+  name: GPIO
+git:
+  name: Git
+nuget:
+  name: NuGet

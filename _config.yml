@@ -2,11 +2,15 @@
 # Site settings
 ############################################################
 title                   : "Chris Mavrommatis"
-description             : >- 
-  Hello my name is Chris and I am a Software Engineer in Greece.
-  Welcome to my personal site.
+description             : >-
+  I build APIs in C# and .NET, and I spend a lot of my own time on security.
+  Hobby projects, benchmarks, and notes on what I got wrong.
   
 url                     : "https://chrismavrommatis.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Empty here on purpose, so a local build and a pull-request build load no analytics.
+# The real container id lives in _config.prod.yml, which only the publish build passes.
+gtm                     : ''
 
 
 
@@ -24,10 +28,11 @@ sass:
   sass_dir          : _sass
   cache             : false
   style             : compressed
+  sourcemap         : never    # otherwise the whole _sass source, comments included, ships in _site
 collections:
   posts:
     output          : true
-    permalink       : /blog/post/:slug
+    permalink       : /blog/:slug
 
 ############################################################
 # Handling Reading
@@ -83,7 +88,6 @@ paginate_path       : /page:num
 timezone            : "Europe/Athens"       
 quiet               : false
 verbose             : false
-defaults            : []
 liquid:
   error_mode        : warn
   strict_filters    : false
@@ -132,7 +136,7 @@ defaults:
 
   - 
     scope:
-      path              : "collections/_posts"
+      path              : ""                        # empty, not collections/_posts, so _drafts inherits it too
       type              : "posts"
     values:
       layout            : "blog_detail"

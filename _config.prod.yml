@@ -1,0 +1,8 @@
+# Production overlay. Passed alongside _config.yml only by the publish build:
+#
+#   bundle exec jekyll build --config _config.yml,_config.prod.yml
+#
+# Keeping the container id out of _config.yml means local and pull-request builds
+# emit no Google Tag Manager at all.
+
+gtm                     : 'GTM-K6V53LMT'

@@ -1,0 +1,180 @@
+// Reading column.
+//
+// Kramdown gives me a flat run of h2/p/pre/table/ol with no wrappers, so the hanging
+// heading is a float, not a grid. Don't turn it into a grid, that puts section
+// wrappers in every .md file.
+//
+// Text stops at the measure. Charts, code and tables keep the left edge and run right.
+
+.prose {
+	max-width: 100%;
+	font-family: var(--font-body);
+	line-height: 1.76;
+	color: var(--text);
+}
+
+.prose > * {
+	margin: 0;
+	max-width: var(--measure);
+}
+
+.prose > * + * {
+	margin-top: var(--space-5);
+}
+
+.prose > figure,
+.prose > .table-container,
+.prose > .table-wrap,
+.prose > .highlight,
+.prose > .highlighter-rouge,
+.prose > pre,
+.prose > p:has(> picture),
+.prose > p:has(> img) {
+	max-width: none;
+}
+
+.prose p {
+	text-wrap: pretty;
+}
+
+// --- headings ----------------------------------------------------------------
+
+.prose h2,
+.prose h3,
+.prose h4 {
+	font-family: var(--font-display);
+	font-weight: var(--display-weight);
+	line-height: 1.28;
+	color: var(--text);
+}
+
+.prose > h2 {
+	position: relative;
+	margin-top: var(--space-8);
+	font-size: var(--step-2);
+}
+
+.prose > h2::before {
+	content: '';
+	position: absolute;
+	top: -1.15rem;
+	left: 0;
+	width: 1.9rem;
+	height: 2px;
+	background: var(--accent);
+	border-radius: 2px;
+}
+
+// The float is out of flow, so both need the same top margin to start level.
+.prose > h2 + * {
+	margin-top: var(--space-8);
+}
+
+.prose > h2:first-child,
+.prose > h2:first-child + * {
+	margin-top: 0;
+}
+
+@media (min-width: 62rem) {
+	.prose > h2 {
+		float: left;
+		clear: left;
+		width: var(--spine-col);
+		margin-left: calc(-1 * var(--spine));
+	}
+}
+
+.prose > h3,
+.prose > h4 {
+	margin-top: var(--space-6);
+	font-size: var(--step-1);
+}
+
+.prose > h3 + *,
+.prose > h4 + * {
+	margin-top: var(--space-4);
+}
+
+// --- lists, quotes, emphasis -------------------------------------------------
+
+.prose ul,
+.prose ol {
+	padding-left: 1.4em;
+}
+
+.prose li + li {
+	margin-top: var(--space-3);
+}
+
+.prose li::marker {
+	color: var(--accent);
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
+}
+
+.prose strong,
+.prose b {
+	font-weight: 600;
+	color: var(--text);
+}
+
+.prose blockquote {
+	padding-left: var(--space-5);
+	border-left: 2px solid var(--accent-wash);
+	color: var(--text-muted);
+}
+
+.prose blockquote > * + * {
+	margin-top: var(--space-4);
+}
+
+// --- images ------------------------------------------------------------------
+// The charts are white PNGs, so dark mats and dims them.
+
+.prose img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	background: var(--plate);
+	padding: var(--plate-pad);
+	border: var(--hairline) solid var(--plate-line);
+	border-radius: var(--radius);
+	filter: var(--plate-dim);
+}
+
+.prose picture {
+	display: block;
+}
+
+.prose figcaption {
+	margin-top: var(--space-3);
+	max-width: 44rem;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	line-height: 1.7;
+	color: var(--text-faint);
+}
+
+.prose hr {
+	margin: var(--space-6) 0;
+}
+
+// The post sign-off, when it is the last line.
+.prose > .farewell {
+	margin-top: var(--space-7);
+	font-family: var(--font-display);
+	font-style: italic;
+	font-size: var(--step-1);
+	color: var(--accent);
+}
+
+// {:.link} and {:.responsive} in the posts were BeerCSS classes.
+
+.link {
+	color: var(--accent);
+}
+
+.responsive {
+	max-width: 100%;
+	height: auto;
+}

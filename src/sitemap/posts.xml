@@ -6,6 +6,7 @@ isSitemap      : true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	{% for post in site.posts %}
+	{% if post.sitemap.exclude != true %}
 	<url>
 		<loc>{{ post.url | remove: "index.html" | absolute_url }}</loc>
 		{% if post.lastmod == null %}
@@ -16,5 +17,6 @@ isSitemap      : true
 		<changefreq>{{ post.sitemap.changefreq }}</changefreq>
 		<priority>{{ post.sitemap.priority }}</priority>
 	</url>
+	{% endif %}
 	{% endfor %}
 </urlset>

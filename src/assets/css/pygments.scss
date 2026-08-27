@@ -1,0 +1,27 @@
+---
+---
+
+@charset "UTF-8";
+
+/*! Syntax colours from Pygments. Copyright (c) 2006 and later, the Pygments authors.
+ * BSD 2-Clause. https://github.com/pygments/pygments/blob/master/LICENSE
+ */
+
+// vs is the light panel, monokai the dark one. Both are mixins because @use can't be
+// nested.
+@use 'pygments/vs';
+@use 'pygments/monokai';
+
+:root {
+	@include vs.styles;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		@include monokai.styles;
+	}
+}
+
+:root[data-theme='dark'] {
+	@include monokai.styles;
+}

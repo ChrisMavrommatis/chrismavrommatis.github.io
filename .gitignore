@@ -1,4 +1,3 @@
-Gemfile.lock
 node_modules
 package-lock.json
 .jekyll-cache
@@ -7,8 +6,5 @@ dist
 _site
 .idea
 
-*.crt
-*.key
-*.pem
-*.srl
-*.csr
+.agents/
+CLAUDE.md
