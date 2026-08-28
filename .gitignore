@@ -6,5 +6,5 @@ dist
 _site
 .idea
 
-.agents/
+.agents
 CLAUDE.md

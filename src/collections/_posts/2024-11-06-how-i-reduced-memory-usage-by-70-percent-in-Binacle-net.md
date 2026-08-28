@@ -113,7 +113,7 @@ When I started rewriting the algorithms without LINQ, there were definite improv
 
 In the following two examples you can see how closures increase memory allocation especially inside loops.
 
-I've put the full benchmark solution in [BenchmarkTests-R2CM](https://github.com/ChrisMavrommatis/BenchmarkTests-R2CM){:.link}, should you wish to test it yourself.
+I've put the full benchmark solution in [misc/benchmarks/binacle-memory](https://github.com/ChrisMavrommatis/misc/tree/main/benchmarks/binacle-memory){:.link}, should you wish to test it yourself.
 
 {% highlight csharp %}
 foreach (var author in this.Authors!)
