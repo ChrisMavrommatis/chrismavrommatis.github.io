@@ -14,8 +14,7 @@ answers:
     something worked, and I hope a couple of them are of some use to someone else.
   built_more: >-
     There are a few smaller ones on
-    <a href="https://github.com/ChrisMavrommatis/">GitHub</a>, two of them
-    published as NuGet packages.
+    <a href="https://github.com/ChrisMavrommatis/">GitHub</a>.
   written: >-
     Two things, mostly. Security, for people who do not work in security. And
     whatever I have just taken apart, benchmarks, allocation counts, and the times

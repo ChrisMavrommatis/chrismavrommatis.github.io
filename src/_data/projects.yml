@@ -21,25 +21,18 @@
   stack: [typescript, web-components, google-consent-mode]
   listed: true
 
-- slug: claude-sandbox
-  name: Claude Sandbox
-  description: builds a locked-down WSL2 distro on Windows and runs a coding agent inside it, so it does not have the run of the host.
-  url: https://github.com/ChrisMavrommatis/claude-sandbox
-  stack: [powershell, wsl2, podman]
-  listed: true
-
 - slug: openapi-examples
   name: OpenApiExamples
   description: puts request and response examples into the OpenAPI document ASP.NET Core generates for a minimal API.
   url: https://github.com/ChrisMavrommatis/OpenApiExamples
   stack: [dotnet, csharp, openapi, nuget]
-  listed: false
+  listed: true
 
-- slug: flux-results
-  name: FluxResults
-  description: gives C# result and union types, so a method can hand back an outcome instead of throwing an exception.
-  url: https://github.com/ChrisMavrommatis/FluxResults
-  stack: [dotnet, csharp, nuget]
+- slug: claude-sandbox
+  name: Claude Sandbox
+  description: builds a locked-down WSL2 distro on Windows and runs a coding agent inside it, so it does not have the run of the host.
+  url: https://github.com/ChrisMavrommatis/claude-sandbox
+  stack: [powershell, wsl2, podman]
   listed: false
 
 - slug: claude-forge
