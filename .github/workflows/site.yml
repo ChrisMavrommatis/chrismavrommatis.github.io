@@ -1,9 +1,6 @@
 name: Site
 
 # Dispatch only. Nothing runs on a push.
-#
-# `publish` defaults to false, so a run builds and uploads the artifact and stops.
-# Nothing reaches the live site until it is dispatched with `publish` on.
 
 on:
   workflow_dispatch:
@@ -34,11 +31,6 @@ jobs:
           ruby-version-file: .ruby-version
           bundler-cache: true
 
-      # GitHub Pages cannot build this itself - jekyll-tidy is not on its plugin allowlist,
-      # and the site runs `safe: false` with three custom plugins - so the site is built
-      # here and only the output is handed over.
-      # Both configs: _config.yml holds everything, _config.prod.yml overrides only the
-      # Google Tag Manager id. A local or pull-request build never loads it.
       - name: Build the site
         env:
           JEKYLL_ENV: production

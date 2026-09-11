@@ -10,7 +10,7 @@ sitemap:
 User-agent: *
 Disallow:
 
-{% assign sitemaps = site.pages | where:"isSitemap", true %}
-{% for sitemap in sitemaps %}
-Sitemap: {{ sitemap.url | absolute_url }}
-{% endfor %}
+Sitemap: {{ site.sitemaps.index | required: "sitemaps.index" | absolute_url }}
+{%- for subpath in site.sitemaps.external %}
+Sitemap: {{ subpath | append: "/sitemap.xml" | absolute_url }}
+{%- endfor %}

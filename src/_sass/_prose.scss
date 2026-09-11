@@ -1,10 +1,6 @@
-// Reading column.
-//
 // Kramdown gives me a flat run of h2/p/pre/table/ol with no wrappers, so the hanging
 // heading is a float, not a grid. Don't turn it into a grid, that puts section
 // wrappers in every .md file.
-//
-// Text stops at the measure. Charts, code and tables keep the left edge and run right.
 
 .prose {
 	max-width: 100%;

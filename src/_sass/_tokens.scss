@@ -1,6 +1,3 @@
-// Full light palette on bare :root. The dark blocks only override it. Never define a
-// colour only inside a media or [data-theme] block, it won't apply when nothing is stamped.
-
 :root {
 	color-scheme: light;
 

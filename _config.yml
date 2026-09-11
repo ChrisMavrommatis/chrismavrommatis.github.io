@@ -6,7 +6,7 @@ description             : >-
   I build APIs in C# and .NET, and I spend a lot of my own time on security.
   Hobby projects, benchmarks, and notes on what I got wrong.
   
-url                     : "https://chrismavrommatis.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url                     : "https://chrismavrommatis.github.io"
 
 # Empty here on purpose, so a local build and a pull-request build load no analytics.
 # The real container id lives in _config.prod.yml, which only the publish build passes.
@@ -15,12 +15,22 @@ gtm                     : ''
 
 
 ############################################################
+# Sitemaps
+############################################################
+# Every site here publishes one entry point at <subpath>/sitemap.xml. This site's is
+# the index over src/sitemap/*.xml; a project site adds its subpath below by hand.
+sitemaps:
+  index                 : /sitemap.xml
+  external              :
+    - /consentio
+
+############################################################
 # Where things are
 ############################################################
 source              : ./src
 destination         : _site
 collections_dir     : collections
-plugins_dir         : _plugins       # takes an array of strings and loads plugins in that order
+plugins_dir         : _plugins
 layouts_dir         : _layouts
 includes_dir        : _includes
 data_dir            : _data
@@ -158,9 +168,9 @@ defaults:
 # jekyll-tidy
 ############################################################
 jekyll_tidy:
-  exclude       : []       # an array of files to exclude from tidying.
+  exclude       : []
   ignore_env    : null     # a JEKYLL_ENV string on which to skip tidying entirely.
-  compress_html : false    # a flag for whether or not to compress the HTML output
+  compress_html : false
 
 ############################################################
 # Site configuration for the Jekyll 3 Pagination Gem

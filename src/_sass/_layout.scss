@@ -1,6 +1,3 @@
-// One spine down every page. The margin column carries whatever names the block,
-// everything else starts after it. Below 62rem it stacks.
-
 .edge {
 	width: 100%;
 	max-width: var(--page-max);
@@ -183,7 +180,6 @@
 }
 
 // --- projects, as prose ------------------------------------------------------
-// No cards and no technology list under each one. Both read as a CV.
 
 .work p {
 	margin: 0 0 var(--space-5);
